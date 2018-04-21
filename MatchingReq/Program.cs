@@ -11,12 +11,12 @@ namespace Matching
         static void Main(string[] args)
         {
             Dictionary<String, Trader> Traders = new Dictionary<String, Trader>();
-            //чтобы удобнее было обращаться к данным о пользователях, разместим их в словаре
+            //чтобы удобнее было обращаться к данным о пользователях по имени, разместим их в словаре
             List<Request> Requests = new List<Request>();
-            //к запросам мы не будем часто обращаться, поэтому поместим их в список, еще можно использовать коллекцию Queue
-            String clientsFL = @"C:\SBT\clients.txt"; // файл с клиентами
-            String requestsFL = @"C:\SBT\orders.txt"; // файл с заявками
-            String export = @"C:\SBT\export.txt";
+            //искать заросы по ключу нам не нужно, поэтому поместим их в список
+            String clientsFL = @"C:\SBT\clients.txt"; //путь к файлу с клиентами
+            String requestsFL = @"C:\SBT\orders.txt"; //путь к файлу с заявками
+            String export = @"C:\SBT\export.txt"; //путь к файлу экспорта
             int counter = 0;
             String line;
             System.IO.StreamReader file;
@@ -41,7 +41,7 @@ namespace Matching
                 while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о клиентах
                 {
                     String[] vals = line.Split("\t");
-                    Traders.Add(vals[0], Trader.createNewTrader(vals));
+                    Traders.Add(vals[0], Trader.createNewTrader(vals));//помещаем нового клиента в словарь
                     counter++;
                 }
                 file.Close();
@@ -123,7 +123,7 @@ namespace Matching
             }
             file.Close();
             Console.WriteLine("There were {0} Requests.", counter);
-            Console.WriteLine("There were {0} Requests didnt processed.", Requests.Count);
+            Console.WriteLine("{0} Requests in list now.", Requests.Count);
             try
             {
                 StreamWriter fileExport = new StreamWriter(export);
