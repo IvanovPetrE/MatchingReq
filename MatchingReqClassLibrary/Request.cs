@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace MatchingReq//класс, который будет содержать информацию о заявке
+namespace MatchingReqClassLibrary
 {
-    class Request
+    public class Request
     {
         public String TName, reqType, psType; //Имя клиента, символ операции, наименование ценной бумаги
         public int cost, qt;//цена, количество

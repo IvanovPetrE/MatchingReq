@@ -1,9 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using Trader = MatchingReq.Trader;
-using Request = MatchingReq.Request;
-
+//using Trader = MatchingReq.Trader;
+//using Request = MatchingReq.Request;
+using Request = MatchingReqClassLibrary.Request;
+using Trader = MatchingReqClassLibrary.Trader;
 namespace Matching
 {
     class Program
@@ -41,7 +42,7 @@ namespace Matching
                 while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о клиентах
                 {
                     String[] vals = line.Split("\t");
-                    Traders.Add(vals[0], Trader.createNewTrader(vals));//помещаем нового клиента в словарь
+                    Traders.Add(vals[0], new Trader(vals));//помещаем нового клиента в словарь
                     counter++;
                 }
                 file.Close();

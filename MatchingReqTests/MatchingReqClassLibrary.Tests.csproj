@@ -48,16 +48,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="TraserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MatchingReq\MatchingReq.csproj">
-      <Project>{554b96e6-3be2-4059-bfac-5b3a7d51ea33}</Project>
-      <Name>MatchingReq</Name>
+    <ProjectReference Include="..\MatchingReqClassLibrary\MatchingReqClassLibrary.csproj">
+      <Project>{4ceed376-f247-40cd-9ad2-d329bc69250e}</Project>
+      <Name>MatchingReqClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

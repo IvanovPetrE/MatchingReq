@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MatchingReq
+namespace ClassLibrary
 {
-    class Trader
+    public class Trader
     {
         //private String name;
         private String id; //имя
@@ -95,7 +93,7 @@ namespace MatchingReq
         }
         public String getTraderData()//метод вернет массив строк со значениями полей, нужно для вывода итоговых значений
         {
-            String data = id +"\t"+ money.ToString() + "\t" + qtA.ToString() + "\t" + qtB.ToString() + "\t" + qtC.ToString() + "\t" + qtD.ToString();
+            String data = id + "\t" + money.ToString() + "\t" + qtA.ToString() + "\t" + qtB.ToString() + "\t" + qtC.ToString() + "\t" + qtD.ToString();
             return data;
         }
         public static Trader createNewTrader(String[] vals) //метод для простоты создания нового объекта.
