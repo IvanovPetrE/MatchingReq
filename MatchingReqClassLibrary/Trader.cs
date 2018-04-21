@@ -12,7 +12,7 @@ namespace MatchingReqClassLibrary
         private String id; //имя
         private int money;//Баланс клиента по долларам 
         private int qtA, qtB, qtC, qtD;//балланс по ценным бумагам
-        public Trader(String id, int money, int qtA, int qtB, int qtC, int qtD)
+        /*public Trader(String id, int money, int qtA, int qtB, int qtC, int qtD)
         {
             this.id = id;
             this.money = money;
@@ -20,7 +20,7 @@ namespace MatchingReqClassLibrary
             this.qtB = qtB;
             this.qtC = qtC;
             this.qtD = qtD;
-        }
+        }*/
         public Trader (String[] vals) //метод для простоты создания нового объекта.
         {
             this.id = vals[0];
@@ -76,12 +76,12 @@ namespace MatchingReqClassLibrary
         }
         private void buyC(int cost, int qt)
         {
-            qtB += qt;
+            qtC += qt;
             money -= (cost * qt);
         }
         private void buyD(int cost, int qt)
         {
-            qtC += qt;
+            qtD += qt;
             money -= (cost * qt);
         }
         private void sellA(int cost, int qt)
