@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using Trader = MatchingReq.Trader;
 using Request = MatchingReq.Request;
@@ -15,23 +16,64 @@ namespace Matching
             //к запросам мы не будем часто обращаться, поэтому поместим их в список, еще можно использовать коллекцию Queue
             String clientsFL = @"C:\SBT\clients.txt"; // файл с клиентами
             String requestsFL = @"C:\SBT\orders.txt"; // файл с заявками
+            String export = @"C:\SBT\export.txt";
             int counter = 0;
             String line;
-            System.IO.StreamReader file = new System.IO.StreamReader(clientsFL);
-            while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о клиентах
+            System.IO.StreamReader file;
+            try
             {
-                String[] vals = line.Split("\t");
-                Traders.Add(vals[0], Trader.createNewTrader(vals));
-                counter++;
+                file = new System.IO.StreamReader(clientsFL);
             }
-            file.Close();
-            Console.WriteLine("There were {0} Traders.", counter);
-
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine(@"Ошибка. Файл C:\SBT\clients.txt не найден");
+                Console.ReadLine();
+                return;
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine(@"Ошибка. Файл C:\SBT\clients.txt не найден");
+                Console.ReadLine();
+                return;
+            }
+            try
+            {
+                while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о клиентах
+                {
+                    String[] vals = line.Split("\t");
+                    Traders.Add(vals[0], Trader.createNewTrader(vals));
+                    counter++;
+                }
+                file.Close();
+                Console.WriteLine("There were {0} Traders.", counter);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Ошибка на этапе чтения файла с информацией о клиентах");
+                Console.ReadLine();
+                return;
+            }
+            
 
             counter = 0;
             bool condition = false;
             Request deltaRequest;
-            file = new System.IO.StreamReader(requestsFL);
+            try
+            {
+                file = new System.IO.StreamReader(requestsFL);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine(@"Ошибка. Файл C:\SBT\orders.txt не найден");
+                Console.ReadLine();
+                return;
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine(@"Ошибка. Файл C:\SBT\orders.txt не найден");
+                Console.ReadLine();
+                return;
+            }
             while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о заявках
             {
                 String[] vals = line.Split("\t");
@@ -51,10 +93,10 @@ namespace Matching
 
                         Console.WriteLine("Old values");
                         Console.WriteLine(Traders[vals[0]].getTraderData());
-                        Console.WriteLine(Traders[req.TName].getTraderData());
+                        Console.WriteLine(Traders[req.TName].getTraderData());*/
                         Traders[vals[0]].buyOrSellPS(vals[1], vals[2], Int32.Parse(vals[3]), Int32.Parse(vals[4]));
                         Traders[req.TName].buyOrSellPS(req.reqType, req.psType, req.cost, req.qt);
-                        Console.WriteLine("New values");
+                        /*Console.WriteLine("New values");
                         Console.WriteLine(Traders[vals[0]].getTraderData());
                         Console.WriteLine(Traders[req.TName].getTraderData());
                         Console.WriteLine("");
@@ -79,13 +121,24 @@ namespace Matching
                 }
                 counter++;
             }
-
             file.Close();
             Console.WriteLine("There were {0} Requests.", counter);
             Console.WriteLine("There were {0} Requests didnt processed.", Requests.Count);
-            foreach (String key in Traders.Keys)
+            try
             {
-                Console.WriteLine(Traders[key].getTraderData());
+                StreamWriter fileExport = new StreamWriter(export);
+                foreach (String key in Traders.Keys)
+                {
+                    fileExport.WriteLine(Traders[key].getTraderData());
+                    Console.WriteLine(Traders[key].getTraderData());
+                }
+                fileExport.Close();
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine(@"Ошибка экспорта. Директория C:\SBT\ не найдена");
+                Console.ReadLine();
+                return;
             }
             Console.ReadLine();
         }

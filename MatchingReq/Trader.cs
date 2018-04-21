@@ -108,7 +108,7 @@ namespace MatchingReq
             Int32.TryParse(vals[3], out qtB);
             Int32.TryParse(vals[4], out qtC);
             Int32.TryParse(vals[5], out qtD);
-            return new Trader(id, money, qtA, qtB, qtC, qtD); ;
+            return new Trader(id, money, qtA, qtB, qtC, qtD);
         }
     }
 }
