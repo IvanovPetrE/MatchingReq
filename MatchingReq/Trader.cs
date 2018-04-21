@@ -7,9 +7,9 @@ namespace MatchingReq
     class Trader
     {
         //private String name;
-        private String id;
-        private int money;
-        private int qtA, qtB, qtC, qtD;
+        private String id; //имя
+        private int money;//Баланс клиента по долларам 
+        private int qtA, qtB, qtC, qtD;//балланс по ценным бумагам
         public Trader(String id, int money, int qtA, int qtB, int qtC, int qtD)
         {
             this.id = id;
@@ -59,11 +59,22 @@ namespace MatchingReq
             qtD -= qt;
             money += (cost * qt);
         }
-        public String[] getTraderData()
+        public String[] getTraderData()//метод вернет массив строк со значениями полей, нужно для вывода итоговых значений
         {
             String[] data = { id, money.ToString(), qtA.ToString(), qtB.ToString(), qtC.ToString(), qtD.ToString() };
             return data;
-        }//метод вернет массив строк со значениями полей, нужно для вывода итоговых значений
-
+        }
+        public static Trader createNewTrader(String[] vals) //метод для простоты создания нового объекта.
+        {
+            String id;
+            int money, qtA, qtB, qtC, qtD;
+            id = vals[0];
+            Int32.TryParse(vals[1], out money);
+            Int32.TryParse(vals[2], out qtA);
+            Int32.TryParse(vals[3], out qtB);
+            Int32.TryParse(vals[4], out qtC);
+            Int32.TryParse(vals[5], out qtD);
+            return new Trader(id, money, qtA, qtB, qtC, qtD); ;
+        }
     }
 }

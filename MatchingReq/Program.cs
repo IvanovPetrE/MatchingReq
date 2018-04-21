@@ -1,39 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Trader = MatchingReq.Trader;
+using Request = MatchingReq.Request;
 
 namespace Matching
 {
-    struct Request //структура, которая будет содержать информацию о заявке
-    {
-        public String TName, reqType, psType;
-        public int cost, qt;
-        public Request(String TName, String reqType, String psType, int cost, int qt)
-        {
-            this.TName = TName;
-            this.reqType = reqType;
-            this.psType = psType;
-            this.cost = cost;
-            this.qt = qt;
-        }
-    }
-
     class Program
     {
-        static Trader getNewTrader(String[] vals)
-        {
-            String id;
-            int money, qtA, qtB, qtC, qtD;
-            id = vals[0];
-            Int32.TryParse(vals[1], out money);
-            Int32.TryParse(vals[2], out qtA);
-            Int32.TryParse(vals[3], out qtB);
-            Int32.TryParse(vals[4], out qtC);
-            Int32.TryParse(vals[5], out qtD);
-            Trader item = new Trader(id, money, qtA, qtB, qtC, qtD);
-            return item;
-        }
-
         static void Main(string[] args)
         {
             Dictionary<String, Trader> Traders = new Dictionary<String, Trader>();
@@ -48,7 +21,7 @@ namespace Matching
             while ((line = file.ReadLine()) != null) //В этом цикле получаем данные о клиентах
             {
                 String[] vals = line.Split("\t");
-                Traders.Add(vals[0], getNewTrader(vals));
+                Traders.Add(vals[0], Trader.createNewTrader(vals));
                 counter++;
             }
             file.Close();
