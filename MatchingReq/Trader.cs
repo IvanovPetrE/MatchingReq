@@ -19,49 +19,83 @@ namespace MatchingReq
             this.qtC = qtC;
             this.qtD = qtD;
         }
-        public void buyA(int cost, int qt)
+
+        public void buyOrSellPS(String reqType, String psType, int cost, int qt)
+        {
+            switch (psType)
+            {
+                case "A":
+                    if (reqType == "b")
+                        buyA(cost, qt);
+                    else
+                        sellA(cost, qt);
+                    break;
+
+                case "B":
+                    if (reqType == "b")
+                        buyB(cost, qt);
+                    else
+                        sellB(cost, qt);
+                    break;
+
+                case "C":
+                    if (reqType == "b")
+                        buyC(cost, qt);
+                    else
+                        sellC(cost, qt);
+                    break;
+
+                case "D":
+                    if (reqType == "b")
+                        buyD(cost, qt);
+                    else
+                        sellD(cost, qt);
+                    break;
+            }
+        }
+        private void buyA(int cost, int qt)
         {
             qtA += qt;
             money -= (cost * qt);
         }
-        public void buyB(int cost, int qt)
+        private void buyB(int cost, int qt)
         {
             qtB += qt;
             money -= (cost * qt);
         }
-        public void buyC(int cost, int qt)
+        private void buyC(int cost, int qt)
         {
             qtB += qt;
             money -= (cost * qt);
         }
-        public void buyD(int cost, int qt)
+        private void buyD(int cost, int qt)
         {
             qtC += qt;
             money -= (cost * qt);
         }
-        public void sellA(int cost, int qt)
+        private void sellA(int cost, int qt)
         {
             qtA -= qt;
             money += (cost * qt);
         }
-        public void sellB(int cost, int qt)
+        private void sellB(int cost, int qt)
         {
             qtB -= qt;
             money += (cost * qt);
         }
-        public void sellC(int cost, int qt)
+        private void sellC(int cost, int qt)
         {
             qtC -= qt;
             money += (cost * qt);
         }
-        public void sellD(int cost, int qt)
+        private void sellD(int cost, int qt)
         {
             qtD -= qt;
             money += (cost * qt);
         }
-        public String[] getTraderData()//метод вернет массив строк со значениями полей, нужно для вывода итоговых значений
+        public String getTraderData()//метод вернет массив строк со значениями полей, нужно для вывода итоговых значений
         {
-            String[] data = { id, money.ToString(), qtA.ToString(), qtB.ToString(), qtC.ToString(), qtD.ToString() };
+            String data = id +"\t"+ money.ToString() + "\t" + qtA.ToString() + "\t" + qtB.ToString() + "\t" + qtC.ToString() + "\t" + qtD.ToString();
             return data;
         }
         public static Trader createNewTrader(String[] vals) //метод для простоты создания нового объекта.
