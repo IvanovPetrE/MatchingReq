@@ -9,7 +9,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void traderConstructorTest()
         {
-            //arrenge
+            //arrange
             String[] vals = { "C2","4350","370","120","950","560" };
             String expected = "C2\t4350\t370\t120\t950\t560";
             //act
@@ -21,7 +21,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_buy_A_Test()
         {
-            //arrenge
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "b";
             String psType = "A";
@@ -38,7 +38,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_buy_B_Test()
         {
-            //arrenge
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "b";
             String psType = "B";
@@ -55,7 +55,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_buy_C_Test()
         {
-            //arrenge
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "b";
             String psType = "C";
@@ -72,7 +72,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_buy_D_Test()
         {
-            //arrenge
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "b";
             String psType = "D";
@@ -90,6 +90,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_sell_A_Test()
         {
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "s";
             String psType = "A";
@@ -107,6 +108,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_sell_B_Test()
         {
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "s";
             String psType = "B";
@@ -124,6 +126,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_sell_C_Test()
         {
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "s";
             String psType = "C";
@@ -141,6 +144,7 @@ namespace MatchingReqTests
         [TestMethod]
         public void buyOrSellPS_sell_D_Test()
         {
+            //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
             String reqType = "s";
             String psType = "D";
