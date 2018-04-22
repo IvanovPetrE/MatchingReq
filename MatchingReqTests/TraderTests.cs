@@ -7,7 +7,7 @@ namespace MatchingReqTests
     public class TraderTests
     {
         [TestMethod]
-        public void traderConstructorTest()
+        public void traderConstructorTest()  //тест конструктора
         {
             //arrange
             String[] vals = { "C2","4350","370","120","950","560" };
@@ -19,7 +19,7 @@ namespace MatchingReqTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void buyOrSellPS_buy_A_Test()
+        public void buyOrSellPS_buy_A_Test() // тест покупки бумаги А
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -36,7 +36,7 @@ namespace MatchingReqTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void buyOrSellPS_buy_B_Test()
+        public void buyOrSellPS_buy_B_Test()// тест покупки бумаги B
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -53,7 +53,7 @@ namespace MatchingReqTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void buyOrSellPS_buy_C_Test()
+        public void buyOrSellPS_buy_C_Test() // тест покупки бумаги C
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -70,7 +70,7 @@ namespace MatchingReqTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void buyOrSellPS_buy_D_Test()
+        public void buyOrSellPS_buy_D_Test()// тест покупки бумаги D
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -88,7 +88,7 @@ namespace MatchingReqTests
         }
 
         [TestMethod]
-        public void buyOrSellPS_sell_A_Test()
+        public void buyOrSellPS_sell_A_Test()// тест продажи бумаги А
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -106,7 +106,7 @@ namespace MatchingReqTests
         }
 
         [TestMethod]
-        public void buyOrSellPS_sell_B_Test()
+        public void buyOrSellPS_sell_B_Test()// тест продажи бумаги B
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -124,7 +124,7 @@ namespace MatchingReqTests
         }
 
         [TestMethod]
-        public void buyOrSellPS_sell_C_Test()
+        public void buyOrSellPS_sell_C_Test()// тест продажи бумаги C
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
@@ -142,7 +142,7 @@ namespace MatchingReqTests
         }
 
         [TestMethod]
-        public void buyOrSellPS_sell_D_Test()
+        public void buyOrSellPS_sell_D_Test()// тест продажи бумаги D
         {
             //arrange
             String[] vals = { "C2", "1000", "1", "1", "1", "1" };
